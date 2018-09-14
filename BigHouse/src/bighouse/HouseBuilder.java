@@ -1,47 +1,36 @@
-package BigHouse;
+package bighouse;
 
-import javafx.application.Application;
-import static javafx.application.Application.launch;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcType;
 
 /*
- *
+ * 
  * @author Tim Barber
 */
+public class HouseBuilder {
 
-
-public class BigHouse extends Application{
-
-    private static final int WIDTH = 800;
-    private static final int HEIGHT = 600;
-    private static Canvas canvas;
-
-    public static void main(String args[]) {
-        launch(args);
+    public void paint(Canvas canvas) {
+        createHouse(canvas);
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        StackPane root = new StackPane();
+    public void createHouse(Canvas canvas) {
+        GraphicsContext graphics = canvas.getGraphicsContext2D();
+        graphics.setStroke(Color.BLUE);
+        graphics.strokeText("Text", 35, 35);
+        graphics.setFill(Color.web("FF0000"));
+        graphics.setStroke(Color.web("FFEEDD"));
+        //graphics.fillOval(X, Y, width, height);
+        //graphics.setLineWidth(width);
+        //graphics.strokeArc(centerX, centerY, radiusX, radiusY, startAngle, finishAngle, ArcType.OPEN);
+        //graphics.strokeOval(xPos - (eyeSeparation / 2), yPos, width, height);
+        double centerX = canvas.getWidth()/2;
+        double centerY = canvas.getHeight()/2;        
         
-        canvas = new Canvas(WIDTH, HEIGHT);
-        
-        root.getChildren().add(canvas);
-        
-        Scene primaryScene = new Scene(root, WIDTH, HEIGHT);
-        HouseBuilder house = new HouseBuilder();
-		house.paint(canvas);
-                house.createHouse(canvas);
-                
-        // Graphics code goes here
-        stage.setScene(primaryScene);
-        stage.setTitle("Title");
-        stage.show();
     }
 }
+
 /*
  * The MIT License
  *
