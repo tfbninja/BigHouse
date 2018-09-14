@@ -1,41 +1,42 @@
-package bighouse;
+package BigHouse;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Polygon;
+
 
 /*
  * 
  * @author Tim Barber
-*/
+ */
 public class HouseBuilder {
-
+    /*
     public void paint(Canvas canvas) {
-        createHouse(canvas);
-    }
+        createRoom(canvas);
+    }*/
 
-    public void createHouse(Canvas canvas) {
+    public void createRoom(Canvas canvas, double xPos, double yPos, double width, double height, String color) {
         GraphicsContext graphics = canvas.getGraphicsContext2D();
         graphics.setStroke(Color.BLUE);
-        graphics.strokeText("Text", 35, 35);
-        graphics.setFill(Color.web("FF0000"));
+        graphics.strokeText("Big House Lab: Tim Barber", 35, 35);
+        graphics.setFill(Color.web(color));
         graphics.setStroke(Color.web("FFEEDD"));
+        graphics.fillRect(xPos, yPos, width, height);
         //graphics.fillOval(X, Y, width, height);
         //graphics.setLineWidth(width);
         //graphics.strokeArc(centerX, centerY, radiusX, radiusY, startAngle, finishAngle, ArcType.OPEN);
         //graphics.strokeOval(xPos - (eyeSeparation / 2), yPos, width, height);
-        double centerX = canvas.getWidth()/2;
-        double centerY = canvas.getHeight()/2;
         
-        
-        
+
     }
-    public void createRoof(Canvas canvas){
+
+    public void createRoof(Canvas canvas, double[] xDoubles, double[] yDoubles, String color) {
         GraphicsContext graphics = canvas.getGraphicsContext2D();
-        double centerX = canvas.getWidth()/2;
-        double centerY = canvas.getHeight()/2;
-        
+        graphics.setFill(Color.web(color));
+        graphics.fillPolygon(xDoubles, yDoubles, 3);
+
     }
 }
 

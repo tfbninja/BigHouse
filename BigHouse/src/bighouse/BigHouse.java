@@ -10,10 +10,8 @@ import javafx.stage.Stage;
 /*
  *
  * @author Tim Barber
-*/
-
-
-public class BigHouse extends Application{
+ */
+public class BigHouse extends Application {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
@@ -26,19 +24,26 @@ public class BigHouse extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         StackPane root = new StackPane();
-        
+
         canvas = new Canvas(WIDTH, HEIGHT);
-        
+
         root.getChildren().add(canvas);
-        
+
         Scene primaryScene = new Scene(root, WIDTH, HEIGHT);
         HouseBuilder house = new HouseBuilder();
-		house.paint(canvas);
-                house.createHousee(canvas);
-                
+        
+        double xLeft = 200.0;
+        double xMiddle;
+        double xRight = 600.0;
+        xMiddle = ((xRight - xLeft) / 2) + xLeft;
+        double yBottom = 225.0;
+        double yPoint = 125.0;
+        double spacing = 25.0;
+        house.createRoof(canvas, new double[]{xLeft, xMiddle, xRight}, new double[]{yBottom, yPoint, yBottom}, "b22edb");
+        house.createRoom(canvas, xLeft+spacing, yBottom, xRight-spacing, 400, "FF0000");
         // Graphics code goes here
         stage.setScene(primaryScene);
-        stage.setTitle("Title");
+        stage.setTitle("Yeet");
         stage.show();
     }
 }
