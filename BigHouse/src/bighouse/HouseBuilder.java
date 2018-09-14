@@ -26,7 +26,15 @@ public class HouseBuilder {
         //graphics.strokeArc(centerX, centerY, radiusX, radiusY, startAngle, finishAngle, ArcType.OPEN);
         //graphics.strokeOval(xPos - (eyeSeparation / 2), yPos, width, height);
         double centerX = canvas.getWidth()/2;
-        double centerY = canvas.getHeight()/2;        
+        double centerY = canvas.getHeight()/2;
+        
+        
+        
+    }
+    public void createRoof(Canvas canvas){
+        GraphicsContext graphics = canvas.getGraphicsContext2D();
+        double centerX = canvas.getWidth()/2;
+        double centerY = canvas.getHeight()/2;
         
     }
 }

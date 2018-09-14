@@ -34,7 +34,7 @@ public class BigHouse extends Application{
         Scene primaryScene = new Scene(root, WIDTH, HEIGHT);
         HouseBuilder house = new HouseBuilder();
 		house.paint(canvas);
-                house.createHouse(canvas);
+                house.createHousee(canvas);
                 
         // Graphics code goes here
         stage.setScene(primaryScene);
