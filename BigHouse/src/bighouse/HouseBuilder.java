@@ -12,23 +12,28 @@ import javafx.scene.shape.Polygon;
  * @author Tim Barber
  */
 public class HouseBuilder {
+
     /*
     public void paint(Canvas canvas) {
         createRoom(canvas);
     }*/
-
-    public void createRoom(Canvas canvas, double xPos, double yPos, double width, double height, String color) {
+    public void createRoom(Canvas canvas, double xPos, double yPos, double width, double height, String color, Boolean door, double doorWidth, double doorHeight, String doorColor) {
         GraphicsContext graphics = canvas.getGraphicsContext2D();
         graphics.setStroke(Color.BLUE);
         graphics.strokeText("Big House Lab: Tim Barber", 35, 35);
         graphics.setFill(Color.web(color));
         graphics.setStroke(Color.web("FFEEDD"));
         graphics.fillRect(xPos, yPos, width, height);
+        if (door) {
+            graphics.setFill(Color.web(doorColor));
+            double doorX = width / 2 - (doorWidth / 2) + xPos;
+            double doorY = yPos + height - doorHeight;
+            graphics.fillRect(doorX, doorY, doorWidth, doorHeight);
+        }
         //graphics.fillOval(X, Y, width, height);
         //graphics.setLineWidth(width);
         //graphics.strokeArc(centerX, centerY, radiusX, radiusY, startAngle, finishAngle, ArcType.OPEN);
         //graphics.strokeOval(xPos - (eyeSeparation / 2), yPos, width, height);
-        
 
     }
 
@@ -37,6 +42,18 @@ public class HouseBuilder {
         graphics.setFill(Color.web(color));
         graphics.fillPolygon(xDoubles, yDoubles, 3);
 
+    }
+    
+    public void createWindow(Canvas canvas, double xPos, double yPos, double size, String color, Boolean type){
+        GraphicsContext graphics = canvas.getGraphicsContext2D();
+        graphics.setFill(Color.web(color));
+        if (type){
+            graphics.fillRect(xPos, yPos, size, size); // true(1) for square
+        }
+        else {
+            graphics.fillOval(xPos, yPos, size, size); // false(0) for circle
+        }
+        
     }
 }
 
