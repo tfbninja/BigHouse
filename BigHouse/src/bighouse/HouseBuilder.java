@@ -13,10 +13,6 @@ import javafx.scene.shape.Polygon;
  */
 public class HouseBuilder {
 
-    /*
-    public void paint(Canvas canvas) {
-        createRoom(canvas);
-    }*/
     public void createRoom(Canvas canvas, double xPos, double yPos, double width, double height, String color, Boolean door, double doorWidth, double doorHeight, String doorColor) {
         GraphicsContext graphics = canvas.getGraphicsContext2D();
         graphics.setStroke(Color.BLUE);
@@ -43,17 +39,16 @@ public class HouseBuilder {
         graphics.fillPolygon(xDoubles, yDoubles, 3);
 
     }
-    
-    public void createWindow(Canvas canvas, double xPos, double yPos, double size, String color, Boolean type){
+
+    public void createWindow(Canvas canvas, double xPos, double yPos, double size, String color, Boolean type) {
         GraphicsContext graphics = canvas.getGraphicsContext2D();
         graphics.setFill(Color.web(color));
-        if (type){
+        if (type) {
             graphics.fillRect(xPos, yPos, size, size); // true(1) for square
-        }
-        else {
+        } else {
             graphics.fillOval(xPos, yPos, size, size); // false(0) for circle
         }
-        
+
     }
 }
 
